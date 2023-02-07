@@ -29,7 +29,7 @@
                         <td>
                             <a href="{{ route('admin.categories.show', ['category' => $category]) }}" class="btn btn-primary">Visita</a>
                             <a href="{{ route('admin.categories.edit', ['category' => $category]) }}" class="btn btn-warning">Edita</a>
-                            <form action="{{ route('admin.categories.destroy', ['category' => $category]) }}" method="category">
+                            <form action="{{ route('admin.categories.destroy', ['category' => $category]) }}" method="post">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-delete-me">Elimina</button>

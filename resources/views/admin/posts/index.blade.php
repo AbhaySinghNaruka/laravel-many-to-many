@@ -14,6 +14,7 @@
                     <th scope="col">Slug</th>
                     <th scope="col">Titolo</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Tags</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -26,7 +27,12 @@
 
                         <td>
                             {{-- <a href="{{ route('admin.posts.edit', ['post' => $post]) }}" class="btn btn-warning">Edita</a> --}}
-                            {{ $post->category->name }}
+                            {{ $post->category->name ?? '' }}
+                        </td>
+                        <td>
+                            @foreach ($post->tags as $tag)
+                                {{ $tag->name }}{{ $loop->last ? '' : ', ' }}
+                            @endforeach
                         </td>
 
                         <td>
